@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سامانه خدمات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>سامانه ثبت و جستجوی خدمات</h1>
+    </header>
+
+    <main>
+        {% if secret_message %}
+        <div class="announcement">
+            <span class="close-btn" onclick="this.parentElement.style.display='none'">×</span>
+            <p>{{ secret_message }}</p>
+        </div>
+        {% endif %}
+
+        <div class="categories-scroll">
+            {% for category in categories %}
+            <a href="{{ url_for('search') }}?category={{ category }}" class="category-btn">{{ category }}</a>
+            {% endfor %}
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="{{ url_for('add_service') }}" class="nav-btn">
+            <i class="fas fa-plus-circle"></i>
+            <span>ثبت شغل</span>
+        </a>
+        <a href="{{ url_for('search') }}" class="nav-btn">
+            <i class="fas fa-briefcase"></i>
+            <span>شغل‌های موجود</span>
+        </a>
+        <a href="{{ url_for('add_request') }}" class="nav-btn">
+            <i class="fas fa-search"></i>
+            <span>درخواست شغل</span>
+        </a>
+    </nav>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
