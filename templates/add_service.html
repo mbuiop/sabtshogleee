@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت خدمت جدید</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>ثبت خدمت جدید</h1>
+        <a href="{{ url_for('index') }}" class="btn">بازگشت به خانه</a>
+    </header>
+
+    <main>
+        <form method="POST" class="service-form">
+            <div class="form-group">
+                <label for="title">عنوان خدمت:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">دسته‌بندی:</label>
+                <select id="category" name="category" required>
+                    <option value="تعمیرات">تعمیرات</option>
+                    <option value="آموزش">آموزش</option>
+                    <option value="حمل و نقل">حمل و نقل</option>
+                    <option value="طراحی">طراحی</option>
+                    <option value="سایر">سایر</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">توضیحات:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">شماره تماس:</label>
+                <input type="text" id="contact" name="contact" required>
+            </div>
+
+            <button type="submit" class="btn">ثبت خدمت</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>تمامی حقوق محفوظ است © ۱۴۰۲</p>
+    </footer>
+</body>
+</html>
